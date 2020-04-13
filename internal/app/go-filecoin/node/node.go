@@ -7,6 +7,8 @@ import (
 	"reflect"
 	"runtime"
 
+	"github.com/filecoin-project/go-filecoin/internal/app/go-filecoin/internal/submodule/storage_mining_submodule"
+
 	"github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-sectorbuilder"
 	"github.com/filecoin-project/go-sectorbuilder/fs"
@@ -83,7 +85,7 @@ type Node struct {
 	chain         submodule.ChainSubmodule
 	syncer        submodule.SyncerSubmodule
 	BlockMining   submodule.BlockMiningSubmodule
-	StorageMining *submodule.StorageMiningSubmodule
+	StorageMining *storage_mining_submodule.StorageMiningSubmodule
 
 	//
 	// Supporting services
@@ -478,8 +480,7 @@ func (node *Node) setupStorageMining(ctx context.Context) error {
 	// TODO: rework these modules so they can be at least partially constructed during the building phase #3738
 	stateViewer := state.NewViewer(cborStore)
 
-	node.StorageMining, err = submodule.NewStorageMiningSubmodule(minerAddr, node.Repo.Datastore(),
-		sectorBuilder, &node.chain, &node.Messaging, waiter, &node.Wallet, stateViewer, node.BlockMining.PoStGenerator)
+	node.StorageMining, err = storage_mining_submodule.NewStorageMiningSubmodule(minerAddr, node.Repo.Datastore(), &node.chain, &node.Messaging, waiter, &node.Wallet, stateViewer, sealProofType, postProofType, sectorDir)
 	if err != nil {
 		return err
 	}
