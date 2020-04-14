@@ -11,7 +11,7 @@ require (
 	github.com/docker/distribution v2.7.1+incompatible // indirect
 	github.com/docker/docker v0.7.3-0.20190315170154-87d593639c77
 	github.com/docker/go-connections v0.4.0 // indirect
-	github.com/docker/go-units v0.3.3 // indirect
+	github.com/docker/go-units v0.4.0 // indirect
 	github.com/drand/drand v0.5.5-0.20200404170830-998c611fb395
 	github.com/drand/kyber v1.0.1-0.20200128205555-52819dbafde7
 	github.com/filecoin-project/chain-validation v0.0.6-0.20200331143132-15970e639ac2
@@ -70,7 +70,6 @@ require (
 	github.com/libp2p/go-libp2p-circuit v0.1.4
 	github.com/libp2p/go-libp2p-core v0.3.0
 	github.com/libp2p/go-libp2p-kad-dht v0.1.1
-	github.com/libp2p/go-libp2p-peer v0.2.0
 	github.com/libp2p/go-libp2p-peerstore v0.1.4
 	github.com/libp2p/go-libp2p-pubsub v0.2.5
 	github.com/libp2p/go-libp2p-swarm v0.2.2
